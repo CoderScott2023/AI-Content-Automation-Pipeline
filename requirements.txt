@@ -1,0 +1,11 @@
+whisper
+edge-tts
+moviepy
+requests
+Pillow
+numpy
+torch
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
