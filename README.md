@@ -1,5 +1,5 @@
 PROJECT NAME
-YouTube Faceless Automation Channel
+AI Content Automation Pipeline
 
 PROJECT DESCRIPTION
 
