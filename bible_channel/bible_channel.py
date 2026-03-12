@@ -292,20 +292,13 @@ def create_video():
 
 if __name__ == "__main__":
     youtube = authenticate_youtube_upload()
+    create_background()
+    OUTPUT_VIDEO = os.path.join(r"D:\FULL AUTOMATION CONTROLLER\bible_channel\Final Videos", f"final_video.mp4")
+    create_video()
 
-    i=0
-
-    while True:
-
-        create_background()
-        OUTPUT_VIDEO = os.path.join(r"D:\Slop Channel\Final Videos", f"final_slop_{i}.mp4")
-        create_video()
-
-        upload_video(
+    upload_video(
         youtube,
         file_path=OUTPUT_VIDEO,
-        title="Jesus Loves You❤️✝️",
-        description="#jesus #roblox #christianity"
+        title="Jesus Loves You❤️✝️#s",
+        description="#jesus #christian #christianity"
     )
-        print("Waiting for next upload...")
-        time.sleep(32400) #Wait 9 Hours Until Next Upload
