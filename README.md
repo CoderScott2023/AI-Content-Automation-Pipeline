@@ -10,6 +10,71 @@ The goal of this project was to explore large-scale automation systems, media ge
 The system supports multiple automated content pipelines simultaneously, each operating as its own independent channel. A central controller script schedules and orchestrates the pipelines, enabling scalable automated media production.
 
 
+AI Content Automation Pipeline - Quick Start Guide
+
+1. Clone the repository:
+
+   git clone [https://github.com/CoderScott2023/AI-Content-Automation-Pipeline.git](https://github.com/CoderScott2023/AI-Content-Automation-Pipeline.git)
+   cd AI-Content-Automation-Pipeline
+
+2. Install dependencies:
+
+   pip install -r requirements.txt
+
+3. Set up API Keys:
+
+   * YouTube Data API:
+
+     1. Create a project in Google Cloud Console ([https://console.cloud.google.com/](https://console.cloud.google.com/))
+     2. Enable the YouTube Data API v3
+     3. Download your client_secret.json and place it in the relevant channel folder (e.g., `finance_channel/`)
+
+   * Finance API:
+
+     1. Get a free API key from Financial Modeling Prep ([https://financialmodelingprep.com/](https://financialmodelingprep.com/))
+     2. Replace the placeholder in `finance_channel.py`:
+
+        FMP_API_KEY = "YOUR_API_KEY_HERE"
+
+4. Provide your own media assets:
+
+   * Music: place `music.mp3` inside the channel folder (e.g., `finance_channel/music.mp3`)
+   * Background images: place all images inside the `images` folder in the channel folder (e.g., `finance_channel/images/`)
+
+5. Update file paths (if needed):
+
+   Check the following variables in each channel script:
+
+   IMAGE_FOLDER = r"path_to_images"
+   OUTPUT_BG = r"path_to_output_video"
+   VOICE = "en-GB-RyanNeural"
+   MODEL_DIR = r"path_to_models"
+
+   Make sure these paths match your local directory structure.
+
+6. Run the controller:
+
+   python controller/controller.py
+
+   * This will automatically schedule your channels, generate scripts, create voiceovers, process videos, and upload them to YouTube.
+
+7. Adding new channels (optional):
+
+   * Create a folder under `channels/` for your new channel
+   * Add your script and media assets (`music.mp3` in the folder and images in `images/` subfolder)
+   * Add an entry in `controller.py`:
+
+     jobs.append({
+     "name": "new_channel",
+     "script": "new_channel.py",
+     "folder": r"path_to_channel_folder",
+     "python": r"path_to_python_executable",
+     "interval": 43200,
+     "offset": 0,
+     })
+
+
+
 SYSTEM OVERVIEW
 
 The automation system performs the following steps:
