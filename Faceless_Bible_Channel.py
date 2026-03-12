@@ -173,7 +173,7 @@ def create_background():
 
 
 
-def get_infinite_bible_slop():
+def get_bible_verse():
     themes = {
         "Law": "This reminds us that following the right path leads to a life of true purpose.",
         "History": "We see here how the past shapes the strength of our faith in the present.",
@@ -242,7 +242,7 @@ async def generate_voiceover(text, output_path):
     await communicate.save(output_path)
 
 def create_video():
-    SCRIPT_TEXT = get_infinite_bible_slop()
+    SCRIPT_TEXT = get_bible_verse()
 
     if not os.path.exists(MODEL_DIR):
         os.makedirs(MODEL_DIR)
